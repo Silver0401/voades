@@ -1,12 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import { BrowserRouter } from "react-router-dom";
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import "./styling/css/index.css";
+import { ChakraProvider } from "@chakra-ui/react";
+import { ParallaxProvider } from "react-scroll-parallax";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ChakraProvider>
+      <ParallaxProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </ParallaxProvider>
+    </ChakraProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

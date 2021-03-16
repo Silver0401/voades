@@ -1,0 +1,270 @@
+@import "./Functions";
+
+@keyframes Levitate{
+    0%{
+        transform: translateY(-50px);
+    }
+    100%{
+        transform: translateY(50px);
+    }
+}
+
+@keyframes AnimWidthRight {
+    0%{
+        width: 100%;
+        opacity: 0;
+    }
+    50%{
+        width: 100%;
+        opacity: 0;
+    }
+    51%{
+        width: 100%;
+        opacity: .7;
+    }
+    100%{
+        width: 0px;
+        opacity: .7;
+    }
+}
+
+
+@keyframes AnimWidthLeft {
+    0%{
+        width: 0px;
+        opacity: .7;
+    }
+    50%{
+        width: 100%;
+        opacity: .7;
+    }
+    51%{
+        width: 100%;
+        opacity: 0;
+    }
+    100%{
+        width: 100%;
+        opacity: 0;
+    }
+
+}
+
+
+@keyframes moveInOut {
+    0%{
+        transform:  rotate(-40deg);
+    }
+    100%{
+        transform: rotate(-40deg);
+    }
+}
+
+@keyframes smallBig {
+    0%{
+        transform: scale(.1);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+@keyframes smallBig2 {
+    0%{
+        transform: scale(.1);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+
+#HomePage{
+    position: absolute;
+    // display: flex;
+    // flex-wrap: wrap;
+    // flex-direction: row;
+    overflow: hidden;
+
+
+    .TiltBox{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+        transform: perspective(1000px);
+
+        background: url(./../../resources//Voades2.jpg), url(./../../resources/mask6.jpg);
+        background-blend-mode: screen;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-color: rgba(144, 238, 144, 0.214);
+    
+        .HTitlesBox{
+            
+            position: absolute;
+            width: 100%;
+            min-height: 100%;
+            @include alignCenter();
+            overflow: hidden;
+            transform: translateZ(100px);
+    
+            .MainTitles{
+                position: absolute;
+                width: 100%;
+                height: 50%;
+                @include alignCenter();
+                justify-content: space-around;
+                align-items: center;
+                color: var(--SiteColor2);
+                overflow: visible;
+    
+                > *{
+                    padding: 0px 20px;
+                    background-color: rgba(255, 255, 255, 0.701);
+                    backdrop-filter: blur(100px);
+                    border: 1px solid white;
+                    border-radius: 1rem;
+                }
+
+                .LogoTitleContainer{
+
+                    overflow: visible;
+                    position: relative;
+                    @include alignCenter();
+                    height: clamp(50px, 20vw, 200px);
+                    width: clamp(200px, 45vw, 1000px);
+
+                    img{
+                        height: 100%;
+                        width: auto;
+                    }
+
+                    p{
+                        @include alignCenter();
+                        border-radius: 5px;
+                        top: -20px;
+                        right: -20px;
+                        position: absolute;
+                        width: 70px;
+                        height: 25px;
+                        color: black;
+                        font-weight: bolder;
+                        background: linear-gradient(to right, rgba(0, 128, 0, 0.488), rgba(255, 255, 255, 0.55), rgba(255, 0, 0, 0.461));
+                    }
+                }
+
+                
+                h2{
+                    font-size: clamp(15px, 2.5vw, 100px);
+                    font-weight: bolder;
+                }
+                
+            }   
+            
+            #StartButton{
+                width: 200px;
+                height: 50px;
+                background-color: var(--SiteColor2);
+                color: var(--SiteColor1);
+            }
+        }
+    }
+
+    
+
+    .HShapesBox{
+
+        pointer-events: none;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        // opacity: 0;
+
+        > * {
+            position: absolute;
+        }
+
+        .sphere{
+            // #54af32
+            // #359ad8
+            background-color: #3599d862;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            opacity: 0;
+            // backdrop-filter: blur(2px);
+        }
+
+        .s1{
+            width: 500px;
+            height: 500px;
+            left: -100px;
+            top: -100px;
+        }
+
+        .s2{
+            width: 400px;
+            height: 400px;
+            right: -70px;
+            top: -70px;
+        }
+        .s3{
+            width: 700px;
+            height: 700px;
+            right: 200px;
+            bottom: -300px;
+        }
+        
+        .rectangle{
+            // background-color: #53af32a3;
+            width: 500px;
+            height: 150px;
+            border-radius: 1em;
+            opacity: 1;
+
+            span:nth-child(1){
+                // background-color: lightcoral;
+                z-index: 1;
+                left: 0;
+            }
+            span:nth-child(2){
+                // background-color: lightskyblue;
+                z-index: 0;
+                right: 0;
+            }
+
+            span{
+                background-color: #53af3264;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+            }
+        }
+
+        .r1{
+            top: -20px;
+            left: -20px;
+            transform: rotate(30deg);
+        }
+        .r2{
+            width: 800px;
+            bottom: 100px;
+            left: -200px;
+            transform: rotate(105deg);
+        }
+        .r3{
+            width: 800px;
+            height: 200px;
+            bottom: 100px;
+            right: -200px;
+            transform: rotate(-45deg);
+        }
+
+
+    }
+
+
+}

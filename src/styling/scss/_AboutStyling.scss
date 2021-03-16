@@ -1,0 +1,177 @@
+@import "./Functions";
+
+
+#AboutPage{
+
+    overflow: hidden;
+
+    section{
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        overflow: hidden;
+        height: calc(100vh - 60px);
+    }
+
+
+    .bgSquare{
+        position: absolute;
+        left: -50px;
+        width: 50%;
+        height: 100%;
+        opacity: .6;
+        transform: rotate(10deg);
+        background:linear-gradient( to bottom, white, var(--SiteColor2), var(--SiteColor2), var(--SiteColor1), var(--SiteColor1), white);
+        z-index: 0;
+        border: 1px solid white;
+    }
+
+    .Skills, .LottieAnimation, .CarouselContainer, .CarouselData{
+        position: relative;
+        flex: 1 1 500px;
+        @include alignCenter();
+
+    }
+
+    .Skills{
+
+        justify-content: space-evenly;
+        z-index: 1;
+
+        > * {
+            margin: 0px 5%;
+        }
+
+        h2{
+            font-size: 45px;
+            font-weight: bolder;
+            color: var(--SiteColor1);
+        }
+        p{
+            font-size: 25px;
+            
+        }
+        h4{
+            font-size: 25px;
+
+        }
+
+        #text1{
+            margin-left: 15%;
+        }
+
+        span{
+
+            @include alignCenter();
+            flex-direction: row;
+            justify-content: flex-start;
+            width: 90%;
+            height: 10%;
+            // background-color: lightgreen;
+
+            svg{
+                border-radius: 50%;
+                height: 80%;
+                width: auto;
+                margin: 0px 10%;
+                fill: white;
+                filter: drop-shadow(0px 0px 5px black);
+            }
+        }
+    }
+
+    .CarouselContainer{
+
+        .swiper-container{
+            border-radius: 10px;
+            position: absolute;
+            width: 80%;
+            height: 80%;
+
+            .swiper-slide{
+                width: 200px;
+                height: 100%;
+                @include alignCenter();
+
+                img{
+                    border-radius: 10px;
+                    width: 90%;
+                    height: auto;
+                }
+            }
+        }
+    }
+
+    .CarouselData{
+        justify-content: space-evenly;
+
+        > * {
+            margin: 0px 10%;
+            text-align: center;
+        }
+
+        h1{
+            font-size: 45px;
+            font-weight: bolder;
+            color: var(--SiteColor2);
+        }
+        p{
+            font-size: 25px;
+        }
+        h2{
+            font-size: 30px;
+            font-weight: bolder;
+            color: var(--SiteColor1);
+        }
+        .MessageBox{
+            @include alignCenter();
+            flex-direction: row;
+            height: 20%;
+            width: 90%;
+            border-radius: 10px;
+
+            .ResourcesButton{
+                border: 2px solid var(--SiteColor1);
+                transition: background 500ms;
+
+                &:hover{
+                    background-color: #53af324d;
+                }
+            }
+                
+            .ContactUsButton{
+                border: 2px solid var(--SiteColor2);
+                transition: background 500ms;
+
+                &:hover{
+                    background-color: #3599d85f;
+                }
+            }
+        
+
+            div,a{
+                width: 45%;
+                height: 70%;
+                @include alignCenter();
+                flex-direction: row;
+                justify-content: space-around;
+                cursor: pointer;
+                border-radius: 10px;
+
+                p{
+                    width: 50%;
+                    font-size: 15px;
+                    font-weight: bolder;
+                    margin: 0px 5%;
+                }
+
+                .LottieAnimation2, .LottieAnimation3{
+                    width: 50%;
+                    height: 90%;
+                }
+            }
+
+        }
+    }
+
+}
