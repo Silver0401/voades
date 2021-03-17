@@ -25,18 +25,26 @@
 
         .TiltBox{
 
-            // background: url(./../../resources//Voades2.jpg);
-            // background-position: center;
-            // background-size: cover;
-            // background-repeat: no-repeat;
-            // background-color: rgba(144, 238, 144, 0.214);
-
             .HTitlesBox{
                 .MainTitles{
                     height: 100%;
                 }
             }
         }
+    }
+
+    #AboutPage{
+        .LottieAnimation{
+            height: 50%;
+            width: auto;
+        }
+
+        // .CarouselContainer{
+        //     .swiper-container{
+        //         height: 50%;
+        //         width: auto;
+        //     }
+        // }
     }
 
 
@@ -80,25 +88,77 @@
 }
 
 @media (max-width: 800px){
-    #ContactPage{
-        .ContactContainer{
-            form{
-                margin-left: 0px;
-                background-color: lightcoral;
 
-                .MapContainer, .Data{
-                    position: relative;
-                    width: 100%;
-                    height: 50%;
-                    left: 0%;
-                    top: 0%;
-                }
+    .App{
+    
+        #ContactPage{
 
-                .Data{
-                    background-color: lightgreen;
+            height: calc(150vh - 60px);
+
+            .ContactContainer{
+                form{
+                    margin-left: 0px;
+                    width: 90%;
+                    height: 90%;
+    
+                    .MapContainer, .Data{
+                        position: relative;
+                        width: 100%;
+                        height: 50%;
+                        left: 0%;
+                        top: 0%;
+                    }
+    
                 }
-                .MapContainer{
-                    background-color: lightskyblue;
+            }
+        }
+
+
+        #HomePage{
+
+            .TiltBox{
+
+                .HTitlesBox{
+                    .MainTitles{
+                        
+                        h2{
+                            border: 1px solid var(--SiteColor2);
+                            background-color: rgba(135, 206, 250, 0.249);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 350px){
+    .App{
+
+        #ContactPage{
+            .SocialMedia{
+                .Icons{
+                    span{
+                        transform: translateY(-50px);
+                    }
+
+
+                    .Whats{
+                                            
+                        background-color: rgba(73, 242, 79, 0.40);
+                    }
+                    .Twit{
+                                            
+                        background-color: rgba(255, 255, 0, 0.40);
+                    }
+                    .Face{
+                                            
+                        background-color: rgba(40, 40, 232, 0.40);
+                    }
+                    .Insta{
+                                            
+                        background-color: rgba(255, 0, 111, 0.40);
+                    }
                 }
             }
         }

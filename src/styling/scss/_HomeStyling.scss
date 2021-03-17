@@ -80,11 +80,7 @@
 
 #HomePage{
     position: absolute;
-    // display: flex;
-    // flex-wrap: wrap;
-    // flex-direction: row;
     overflow: hidden;
-
 
     .TiltBox{
         position: absolute;
@@ -170,8 +166,6 @@
             }
         }
     }
-
-    
 
     .HShapesBox{
 
@@ -265,6 +259,4 @@
 
 
     }
-
-
 }

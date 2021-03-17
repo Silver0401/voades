@@ -38,12 +38,13 @@
                     height: 100%;
                     position: absolute;
                     right: 0px;
+                    overflow: hidden;
 
                     h2{
                         width: 100%;
                         height: 15%;
                         @include alignCenter();
-                        font-size: 30px;
+                        font-size: clamp(20px, 3vw, 30px);
                         font-weight: bolder;
                         color: var(--SiteColor1);
                     }
@@ -53,7 +54,8 @@
                         height: 85%;
                         flex-wrap: wrap;       
                         display: flex;    
-                        overflow-y: auto;           
+                        overflow-y: auto; 
+                        overflow-x: hidden;          
 
                         span{
                             position: relative;
@@ -85,6 +87,7 @@
                                     z-index: 0;
                                     padding-left: 2%;
                                     transition: color 500ms, border-bottom 500ms;
+                                    font-size: clamp(.7rem, 2vw, 1rem);
                                     
                                     &:focus, &:valid{
                                         
@@ -96,7 +99,7 @@
                                             transition: transform 500ms, color 500ms, font-size 500ms;
                                             color: var(--SiteColor1);
                                             transform: translate(-10px, -30px);
-                                            font-size: .8rem;
+                                            font-size: clamp( .6rem, 2vw, .8rem);
                                         }
                                     }
                                 }
@@ -111,7 +114,7 @@
                                     z-index: 1;
                                     background-color: white;
                                     margin-left: 2%;
-                                    font-size: 1rem;
+                                    font-size: clamp(.7rem, 2vw, 1rem);
                                     border-radius: 1em;
                                     transition: transform 500ms, color 500ms, font-size 500ms;
                                 }
@@ -136,8 +139,9 @@
                                 height: 100%;
                                 transition: color 500ms, border-bottom 500ms;
                                 z-index: 0;
-                                padding-left: 2%;
+                                padding: 3%;
                                 resize: none;
+                                font-size: clamp(.7rem, 2vw, 1rem);
                                 
                                 &:focus, &:valid{
                                     
@@ -148,8 +152,8 @@
                                     & + p{
                                         transition: transform 500ms, color 500ms, font-size 500ms;
                                         color: var(--SiteColor1);
-                                        transform: translate(-10px, -30px);
-                                        font-size: .8rem;
+                                        transform: translate(30px, -15px);
+                                        font-size: clamp( .6rem, 2vw, .8rem);
                                     }
                                 }
                             }
@@ -166,7 +170,7 @@
                                 z-index: 1;
                                 background-color: white;
                                 margin-left: 2%;
-                                font-size: 1rem;
+                                font-size: clamp(.7rem, 2vw, 1rem);
                                 transition: transform 500ms, color 500ms, font-size 500ms;
                             }
 
@@ -198,7 +202,7 @@
 
                 p{
                     color: white;
-                    font-size: 15px;
+                    font-size: clamp(10px , 2vw, 15px);
                     font-weight: bolder;
                 }
             }
@@ -217,13 +221,13 @@
                     top: 0px;
                     position: relative;
                     width: 120px;
-                    height: 120px;
+                    height: clamp( 60px, 30vw, 120px);
                     border: 1px solid rgba(255, 255, 255, 0.351);
                     border-radius: 10px;
                     backdrop-filter: blur(10px);
                     z-index: 0;
                     @include alignCenter();
-                    transition: top 500ms, z-index 500ms, transform 500ms;
+                    transition: top 500ms, z-index 500ms, transform 500ms, background-color 500ms;
                     transition-delay: 500ms, 0ms, 0ms;
                     cursor: pointer;
                     box-shadow: 0px 0px 45px rgba(0, 0, 0, 0.119);
@@ -235,11 +239,47 @@
                         height: 60%;
                         transition: fill 500ms;
                     }
-                    
+
+                }
+
+
+                .Whats{
+                                        
                     &:hover{
                         z-index: 1;
                         transition-delay: 0ms, 300ms, 500ms;
                         top: -62px;
+                        background-color: rgba(73, 242, 79, 0.40);
+                        transform: translateY(62px);
+                    }
+                }
+                .Twit{
+                                        
+                    &:hover{
+                        z-index: 1;
+                        transition-delay: 0ms, 300ms, 500ms;
+                        top: -62px;
+                        background-color: rgba(255, 255, 0, 0.40);
+                        transform: translateY(62px);
+                    }
+                }
+                .Face{
+                                        
+                    &:hover{
+                        z-index: 1;
+                        transition-delay: 0ms, 300ms, 500ms;
+                        top: -62px;
+                        background-color: rgba(40, 40, 232, 0.40);
+                        transform: translateY(62px);
+                    }
+                }
+                .Insta{
+                                        
+                    &:hover{
+                        z-index: 1;
+                        transition-delay: 0ms, 300ms, 500ms;
+                        top: -62px;
+                        background-color: rgba(255, 0, 111, 0.40);
                         transform: translateY(62px);
                     }
                 }

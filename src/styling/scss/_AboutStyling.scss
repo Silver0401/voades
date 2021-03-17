@@ -84,6 +84,17 @@
         }
     }
 
+    .LottieAnimation{
+
+        height: 100%;
+        width: auto;
+
+        svg{
+            height: 100%;
+            width: 100%;
+        }
+    }
+
     .CarouselContainer{
 
         @include alignCenter();
@@ -91,18 +102,18 @@
         .swiper-container{
             border-radius: 10px;
             position: absolute;
-            width: 80%;
             height: 80%;
+            width: 80%;
 
             .swiper-slide{
-                width: 200px;
+                width: auto;
                 height: 100%;
                 @include alignCenter();
 
                 img{
                     border-radius: 10px;
-                    width: 90%;
-                    height: auto;
+                    height: 90%;
+                    width: auto;
                 }
             }
         }

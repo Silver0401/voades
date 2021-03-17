@@ -1,11 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2&family=Bebas+Neue&family=Cinzel+Decorative&family=Dancing+Script&family=Hachi+Maru+Pop&family=Indie+Flower&family=Lobster&family=Nunito:wght@300&family=Orbitron&family=Parisienne&family=Poiret+One&family=Poppins:ital,wght@1,200&family=Press+Start+2P&family=Sorts+Mill+Goudy&family=Source+Serif+Pro:wght@200&family=Unica+One&display=swap');
-
-@import "./HomeStyling";
-@import "./NavStyling";
-@import "./AboutStyling";
-@import "./ContactStyling";
-@import "./ResourcesStyling";
-@import "./MobileOpt";
+@import "./Functions";
 
 :root{
     --SiteColor1: #54af32;
@@ -180,3 +174,12 @@ html{
     }
 
 }
+
+
+
+@import "./HomeStyling";
+@import "./NavStyling";
+@import "./AboutStyling";
+@import "./ContactStyling";
+@import "./ResourcesStyling";
+@import "./MobileOpt";
