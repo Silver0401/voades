@@ -25,11 +25,11 @@
 
         .TiltBox{
 
-            background: url(./../../resources//Voades2.jpg);
-            background-position: center;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-color: rgba(144, 238, 144, 0.214);
+            // background: url(./../../resources//Voades2.jpg);
+            // background-position: center;
+            // background-size: cover;
+            // background-repeat: no-repeat;
+            // background-color: rgba(144, 238, 144, 0.214);
 
             .HTitlesBox{
                 .MainTitles{
@@ -75,6 +75,32 @@
         .NavNotToggled{
             transform: translateX(250px);
             transition: transform 500ms;
+        }
+    }
+}
+
+@media (max-width: 800px){
+    #ContactPage{
+        .ContactContainer{
+            form{
+                margin-left: 0px;
+                background-color: lightcoral;
+
+                .MapContainer, .Data{
+                    position: relative;
+                    width: 100%;
+                    height: 50%;
+                    left: 0%;
+                    top: 0%;
+                }
+
+                .Data{
+                    background-color: lightgreen;
+                }
+                .MapContainer{
+                    background-color: lightskyblue;
+                }
+            }
         }
     }
 }

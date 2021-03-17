@@ -13,6 +13,9 @@
         height: calc(100vh - 60px);
     }
 
+    section:nth-child(3){
+        flex-wrap: wrap-reverse;
+    }
 
     .bgSquare{
         position: absolute;
@@ -30,6 +33,7 @@
         position: relative;
         flex: 1 1 500px;
         @include alignCenter();
+        min-height: 50%;
 
     }
 
@@ -43,12 +47,12 @@
         }
 
         h2{
-            font-size: 45px;
+            font-size: clamp(25px, 5vw, 45px);
             font-weight: bolder;
             color: var(--SiteColor1);
         }
         p{
-            font-size: 25px;
+            font-size: clamp(12px, 3vw, 25px);
             
         }
         h4{
@@ -82,6 +86,8 @@
 
     .CarouselContainer{
 
+        @include alignCenter();
+
         .swiper-container{
             border-radius: 10px;
             position: absolute;
@@ -111,15 +117,15 @@
         }
 
         h1{
-            font-size: 45px;
+            font-size: clamp(20px, 3vw, 45px);
             font-weight: bolder;
             color: var(--SiteColor2);
         }
         p{
-            font-size: 25px;
+            font-size: clamp(12px, 3vw, 25px);
         }
         h2{
-            font-size: 30px;
+            font-size: clamp(14px, 3vw, 30px);
             font-weight: bolder;
             color: var(--SiteColor1);
         }
@@ -151,7 +157,7 @@
 
             div,a{
                 width: 45%;
-                height: 70%;
+                height: 80%;
                 @include alignCenter();
                 flex-direction: row;
                 justify-content: space-around;
@@ -160,7 +166,7 @@
 
                 p{
                     width: 50%;
-                    font-size: 15px;
+                    font-size: clamp(6px, 2vw, 15px);
                     font-weight: bolder;
                     margin: 0px 5%;
                 }
