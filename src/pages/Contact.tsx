@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import emailjs from "emailjs-com";
+import { ToastContainer, toast } from "react-toastify";
 import {
   Map,
   GoogleApiWrapper,
@@ -7,21 +9,55 @@ import {
 } from "google-maps-react";
  
 import { Button } from "@chakra-ui/react";
+import "react-toastify/dist/ReactToastify.css";
 
 
 export const Contact : React.FC = () => {
 
   const [isButtonLoading, setIsButtonLoading] = useState(false)
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [phone, setPhone] = useState("")
+  const [message, setMessage] = useState("")
+  
   let today = new Date();
   today.setDate(today.getDate());
   const Year = today.getFullYear();
 
+
   const SendData = () => {
     setIsButtonLoading(true)
-    setTimeout(() => {
-      setIsButtonLoading(false)
-    },3000)
+
+    emailjs
+      .send(
+        "service_h86ldsp",
+        "template_nmmf21c",
+        {
+          Name: name,
+          Message: message,
+          Email: email,
+          Phone: phone,
+        },
+        "user_TpS9YP6Fwr4okNaN6XOOH"
+      )
+      .then(
+        (response) => {
+          console.log("SUCCESS!", response.status, response.text);
+          setIsButtonLoading(false);
+          toast.success("Mensaje enviado!")
+          setName("")
+          setEmail("")
+          setPhone("")
+          setMessage("")
+        },
+        (err) => {
+          console.log("FAILED...", err);
+          setIsButtonLoading(false);
+          toast.success("Ocurrio un error al enviar el mensaje")
+        }
+      );    
   }
+
 
   const PlaneIcon = () => {
     return (
@@ -38,29 +74,59 @@ export const Contact : React.FC = () => {
 
     return (
       <div id="ContactPage">
+        <ToastContainer />
+
         <div className="ContactContainer">
-          <form>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              SendData();
+            }}
+          >
             <div className="Data">
               <h2>Contáctanos</h2>
 
               <div className="Fields">
                 <span className="Field1">
                   <div className="box">
-                    <input type="text" id="Name" minLength={2} required />
+                    <input
+                      value={name}
+                      onChange={(e: any) => setName(e.target.value)}
+                      type="text"
+                      id="Name"
+                      minLength={2}
+                      required
+                    />
                     <p>Nombre</p>
                   </div>
                   <div className="box">
-                    <input type="email" minLength={2} required />
+                    <input
+                      value={email}
+                      onChange={(e: any) => setEmail(e.target.value)}
+                      type="email"
+                      minLength={2}
+                      required
+                    />
                     <p>Email</p>
                   </div>
                   <div className="box">
-                    <input type="tel" minLength={2} required />
+                    <input
+                      value={phone}
+                      onChange={(e: any) => setPhone(e.target.value)}
+                      type="tel"
+                      minLength={2}
+                      required
+                    />
                     <p>Teléfono</p>
                   </div>
                 </span>
                 <span className="Field2">
                   <div className="box">
-                    <textarea required />
+                    <textarea
+                      value={message}
+                      onChange={(e: any) => setMessage(e.target.value)}
+                      required
+                    />
                     <p>Mensaje</p>
                   </div>
                   <Button
@@ -68,9 +134,10 @@ export const Contact : React.FC = () => {
                     leftIcon={<PlaneIcon />}
                     isLoading={isButtonLoading}
                     loadingText="Enviando"
-                    onClick={SendData}
+                    // onClick={SendData}
                     colorScheme="whatsapp"
                     variant="outline"
+                    type="submit"
                   >
                     Enviar
                   </Button>
@@ -91,7 +158,7 @@ export const Contact : React.FC = () => {
             <span className="Whats">
               <svg
                 onClick={() =>
-                  window.open("https://wa.me/527714116235", "_newtab")
+                  window.open("https://wa.me/527717939692", "_newtab")
                 }
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -104,7 +171,7 @@ export const Contact : React.FC = () => {
             <span className="Twit">
               <svg
                 onClick={() =>
-                  window.open("mailto:smortmc2@gmail.com", "_newtab")
+                  window.open("mailto:mexico@voades.org", "_newtab")
                 }
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -133,7 +200,10 @@ export const Contact : React.FC = () => {
             <span className="Insta">
               <svg
                 onClick={() =>
-                  window.open("https://www.instagram.com/smortmc2/", "_newtab")
+                  window.open(
+                    "https://www.instagram.com/voadesmexico/",
+                    "_newtab"
+                  )
                 }
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"

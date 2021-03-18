@@ -33,16 +33,16 @@ const Carousel : React.FC = () => {
         onSwiper={(swiper) => console.log(swiper)}
       >
         <SwiperSlide>
-          <img src={image2} alt="voades #1" />
+          <img src={image2} className="square" alt="voades #1" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={image3} alt="voades #1" />
+          <img src={image3} className="rectangle" alt="voades #1" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={image4} alt="voades #1" />
+          <img src={image1} className="square" alt="voades #1" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={image1} alt="voades #1" />
+          <img src={image4} className="rectangle" alt="voades #1" />
         </SwiperSlide>
       </Swiper>
     </div>
