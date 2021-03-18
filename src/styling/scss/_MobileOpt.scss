@@ -1,7 +1,7 @@
 
 @mixin XBurger{
     #line1{
-        transform: translateY(13px) rotate(225deg);
+        transform: translateY(12px) rotate(225deg);
         transition: transform 450ms;
         transition-delay: 200ms;
     }
@@ -12,7 +12,7 @@
     }
 
     #line3{
-        transform: translateY(-14px) rotate(-225deg);
+        transform: translateY(-13px) rotate(-225deg);
         transition: transform 450ms;
         transition-delay: 200ms;
     }
@@ -55,7 +55,7 @@
         }
 
         .BToggled{
-            border: 1px solid white;
+            border: 2px solid var(--SiteColor2);
             transition: border 500ms;
             @include XBurger();
         }
@@ -73,6 +73,8 @@
 
             li{
                 margin: 50px 0px;
+                border-radius: 0px;
+                border-bottom: 2px solid var(--SiteColor2);
             }
         }
 

@@ -142,6 +142,7 @@
                                 padding: 3%;
                                 resize: none;
                                 font-size: clamp(.7rem, 2vw, 1rem);
+                                outline: none;
                                 
                                 &:focus, &:valid{
                                     
@@ -196,7 +197,7 @@
                 width: 100%;
                 height: 50%;
                 background-color: #1d145845;
-                backdrop-filter: blur(5px);
+                backdrop-filter: blur(10px);
                 z-index: 1;
                 @include alignCenter();
 
