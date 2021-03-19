@@ -1,19 +1,20 @@
 import React, { useState } from 'react'
 import emailjs from "emailjs-com";
 import { ToastContainer, toast } from "react-toastify";
-import {
-  Map,
-  GoogleApiWrapper,
-  InfoWindow,
-  Marker,
-} from "google-maps-react";
- 
 import { Button } from "@chakra-ui/react";
 import "react-toastify/dist/ReactToastify.css";
+import {
+  withScriptjs,
+  withGoogleMap,
+  GoogleMap,
+  Marker,
+} from "react-google-maps";
+
+
 
 
 export const Contact : React.FC = () => {
-
+  
   const [isButtonLoading, setIsButtonLoading] = useState(false)
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
@@ -23,13 +24,21 @@ export const Contact : React.FC = () => {
   let today = new Date();
   today.setDate(today.getDate());
   const Year = today.getFullYear();
-
-
+  
+  const MapWithAMarker = withScriptjs(
+    withGoogleMap((props:any) => (
+      <GoogleMap defaultZoom={8} defaultCenter={{ lat: 20.05925201787308, lng: -98.71903480971226 }}>
+        <Marker position={{ lat: 20.05925201787308, lng: -98.71903480971226 }} />
+      </GoogleMap>
+      
+    ))
+  );
+  
   const SendData = () => {
     setIsButtonLoading(true)
-
+    
     emailjs
-      .send(
+    .send(
         "service_h86ldsp",
         "template_nmmf21c",
         {
@@ -145,7 +154,24 @@ export const Contact : React.FC = () => {
               </div>
             </div>
 
-            <div className="MapContainer"></div>
+            <div className="MapContainer">
+              <MapWithAMarker
+                googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLK4wlMhNfLl93M-BsUB8l1cfBADDPkYY&v=3.exp&libraries=geometry,drawing,places"
+                loadingElement={
+                  <div style={{ height: `100%`, width: "100%" }} />
+                }
+                containerElement={
+                  <div
+                    style={{
+                      height: `100%`,
+                      width: "100%",
+                      backgroundColor: "lightcoral",
+                    }}
+                  />
+                }
+                mapElement={<div style={{ height: `100%`, width: "100%" }} />}
+              />
+            </div>
           </form>
         </div>
 
