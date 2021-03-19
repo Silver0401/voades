@@ -23,6 +23,7 @@ const Home : React.FC = () => {
 
         <Tilt 
         className="TiltBox"
+        gyroscope={true}
         perspective={800}
         >
           <TitlesBox />
