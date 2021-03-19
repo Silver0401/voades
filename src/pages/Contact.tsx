@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import emailjs from "emailjs-com";
 import { ToastContainer, toast } from "react-toastify";
 import { Button } from "@chakra-ui/react";
 import "react-toastify/dist/ReactToastify.css";
 import {
+  InfoWindow,
   withScriptjs,
   withGoogleMap,
   GoogleMap,
@@ -16,23 +17,35 @@ import {
 export const Contact : React.FC = () => {
   
   const [isButtonLoading, setIsButtonLoading] = useState(false)
-  const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
-  const [phone, setPhone] = useState("")
-  const [message, setMessage] = useState("")
+
+  const FormRef = useRef <HTMLFormElement> (null)
+  const NameRef = useRef <HTMLInputElement> (null)
+  const EmailRef = useRef <HTMLInputElement> (null)
+  const PhoneRef = useRef <HTMLInputElement> (null)
+  const MessageRef = useRef <HTMLTextAreaElement> (null)
+
   
   let today = new Date();
   today.setDate(today.getDate());
   const Year = today.getFullYear();
   
   const MapWithAMarker = withScriptjs(
-    withGoogleMap((props:any) => (
-      <GoogleMap defaultZoom={8} defaultCenter={{ lat: 20.05925201787308, lng: -98.71903480971226 }}>
-        <Marker position={{ lat: 20.05925201787308, lng: -98.71903480971226 }} />
+    withGoogleMap((props: any) => (
+      <GoogleMap
+        defaultZoom={8}
+        defaultCenter={{ lat: 20.05925201787308, lng: -98.71903480971226 }}
+      >
+        <Marker position={{ lat: 20.05925201787308, lng: -98.71903480971226 }}>
+          <InfoWindow>
+            <p>
+              Avenida Santa Cecilia 182, La Providencia Siglo XXI 42186 Pachuca de Soto, México.
+            </p>
+          </InfoWindow>
+        </Marker>
       </GoogleMap>
-      
     ))
   );
+
   
   const SendData = () => {
     setIsButtonLoading(true)
@@ -42,10 +55,10 @@ export const Contact : React.FC = () => {
         "service_h86ldsp",
         "template_nmmf21c",
         {
-          Name: name,
-          Message: message,
-          Email: email,
-          Phone: phone,
+          Name: NameRef.current?.value,
+          Message: MessageRef.current?.value,
+          Email: EmailRef.current?.value,
+          Phone: PhoneRef.current?.value,
         },
         "user_TpS9YP6Fwr4okNaN6XOOH"
       )
@@ -54,10 +67,8 @@ export const Contact : React.FC = () => {
           console.log("SUCCESS!", response.status, response.text);
           setIsButtonLoading(false);
           toast.success("Mensaje enviado!")
-          setName("")
-          setEmail("")
-          setPhone("")
-          setMessage("")
+          FormRef.current?.reset();
+
         },
         (err) => {
           console.log("FAILED...", err);
@@ -87,6 +98,7 @@ export const Contact : React.FC = () => {
 
         <div className="ContactContainer">
           <form
+            ref={FormRef}
             onSubmit={(e) => {
               e.preventDefault();
               SendData();
@@ -99,10 +111,10 @@ export const Contact : React.FC = () => {
                 <span className="Field1">
                   <div className="box">
                     <input
-                      value={name}
-                      onChange={(e: any) => setName(e.target.value)}
+                      // onChange={(e: any) => setName(e.target.value)}
+                      ref={NameRef}
                       type="text"
-                      id="Name"
+                      id="FormName"
                       minLength={2}
                       required
                     />
@@ -110,8 +122,9 @@ export const Contact : React.FC = () => {
                   </div>
                   <div className="box">
                     <input
-                      value={email}
-                      onChange={(e: any) => setEmail(e.target.value)}
+                      // value={email}
+                      // onChange={(e: any) => setEmail(e.target.value)}
+                      ref={EmailRef}
                       type="email"
                       minLength={2}
                       required
@@ -120,8 +133,9 @@ export const Contact : React.FC = () => {
                   </div>
                   <div className="box">
                     <input
-                      value={phone}
-                      onChange={(e: any) => setPhone(e.target.value)}
+                      // value={phone}
+                      // onChange={(e: any) => setPhone(e.target.value)}
+                      ref={PhoneRef}
                       type="tel"
                       minLength={2}
                       required
@@ -132,8 +146,9 @@ export const Contact : React.FC = () => {
                 <span className="Field2">
                   <div className="box">
                     <textarea
-                      value={message}
-                      onChange={(e: any) => setMessage(e.target.value)}
+                      // value={message}
+                      // onChange={(e: any) => setMessage(e.target.value)}
+                      ref={MessageRef}
                       required
                     />
                     <p>Mensaje</p>
@@ -143,7 +158,6 @@ export const Contact : React.FC = () => {
                     leftIcon={<PlaneIcon />}
                     isLoading={isButtonLoading}
                     loadingText="Enviando"
-                    // onClick={SendData}
                     colorScheme="whatsapp"
                     variant="outline"
                     type="submit"
