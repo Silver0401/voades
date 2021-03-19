@@ -36,19 +36,22 @@ const App : React.FC = () => {
       Loader.add({
         targets: "#LoaderText1",
         translateY: ["100px", "0px"],
+        opacity: [0,1],
         duration: 750,
-        delay: 200,
+        delay: 1000,
         easing: "linear"
       })
       Loader.add({
         targets: "#LoaderText2",
         translateY: ["100px", "0px"],
+        opacity: [0,1],
         duration: 750,
         easing: "linear"
       },"+=250")
       Loader.add({
         targets: "#LoaderText3",
         translateY: ["100px", "0px"],
+        opacity: [0,1],
         duration: 750,
         easing: "linear"
       },"+=250")
