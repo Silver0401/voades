@@ -4,6 +4,7 @@
 #AboutPage{
 
     overflow: hidden;
+    margin: 50px 0px;
 
     section{
         position: relative;
@@ -11,6 +12,7 @@
         flex-wrap: wrap;
         overflow: hidden;
         height: calc(100vh - 60px);
+        margin-bottom: clamp(50px, 2vw ,100px);
     }
 
     section:nth-child(3){
@@ -19,7 +21,7 @@
 
     .bgSquare{
         position: absolute;
-        left: -50px;
+        left: -100px;
         width: 50%;
         height: 100%;
         opacity: .6;
@@ -52,7 +54,7 @@
             color: var(--SiteColor1);
         }
         p{
-            font-size: clamp(12px, 3vw, 25px);
+            font-size: clamp(12px, 2vw, 25px);
             
         }
         h4{
@@ -139,6 +141,7 @@
         }
         p{
             font-size: clamp(12px, 3vw, 25px);
+            font-weight: bolder;
         }
         h2{
             font-size: clamp(14px, 3vw, 30px);
@@ -195,5 +198,133 @@
 
         }
     }
+
+    .MisVisBox{
+
+        position: relative;
+        flex: 1 1 550px;
+        max-height: 100%;
+        @include alignCenter();
+        flex-direction: column;
+        justify-content: space-evenly;
+
+        .VisionContainer, .MissionContainer{
+            position: relative;
+            width: 90%;
+            height: 45%;
+            border-radius: 1rem;
+            @include alignCenter();
+            justify-content: space-evenly;
+    
+            h2{
+                font-size: clamp(20px, 3vw, 45px);
+                font-weight: bolder;
+            }
+    
+            .TextBoxMision, .TextBoxVision{
+    
+                position: relative;
+                height: 50%;
+                width: 90%;
+                overflow-y: scroll;
+    
+                p{
+                    font-size: clamp(10px, 1.5vw, 17px);
+                }
+    
+                p:nth-child(1){
+                    font-weight: bolder;
+                    text-align: center;
+                }
+            }
+    
+            .SvgContainer{
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                @include alignCenter();
+                background-color: rgba(255, 255, 255, 0.324);
+                backdrop-filter: blur(20px);
+                border-radius: 1rem;
+                pointer-events: none;
+                transition: transform 500ms, background-color 500ms;
+    
+                svg{
+                    width: 50%;
+                    height: 50%;
+                    transition: width 500ms, height 500ms, fill 500ms;
+                }
+            }
+    
+            &:hover{
+    
+    
+                .SvgContainer{
+                    transform: scale(.35) translate(-100%, -100%);
+                    background-color: rgba(0, 0, 0, 0.16);
+    
+    
+                    svg{
+                        width: 70%;
+                        height: 70%;
+                        fill: white;
+                    }
+                }
+            }
+        }
+    
+        .VisionContainer{
+            border: 5px solid var(--SiteColor1);
+            background-color: #53af323c;
+    
+            .SvgContainer{
+                svg{
+                    // fill: #54af32;
+                    fill: black;
+                }
+            }
+    
+            
+        }
+        
+        .MissionContainer{
+            border: 5px solid var(--SiteColor2);
+            background-color: #3599d843;
+    
+            .SvgContainer{
+                svg{
+                    // fill: #359ad8;
+                    fill: black;
+                }
+            }
+    
+        }
+    }
+
+    .ValuesBox{
+        position: relative;
+        overflow: hidden;
+        flex: 1 1 550px;
+        max-height: 100%;
+        @include alignCenter();
+        justify-content: space-evenly;
+
+        h2{
+            font-size: clamp(20px, 5vw, 45px);
+            font-weight: bolder;
+            color: var(--SiteColor2);
+        }
+
+        p{
+            font-size: clamp(7px, 1.5vw, 17px);
+            width: 90%;
+            font-weight: bolder;
+
+            span{
+                color: var(--SiteColor2);
+            }
+        }
+    }
+
 
 }
